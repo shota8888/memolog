@@ -5,7 +5,7 @@ import Layout, { siteTitle } from 'src/components/layout'
 import Date from '../components/date'
 import { getSortedPostsData } from 'src/lib/posts'
 import styled from 'styled-components'
-import GlobalStyle from 'src/styles/globalStyles'
+// import GlobalStyle from 'src/styles/globalStyles'
 import utilStyles from 'src/styles/util-styles'
 import Paper from '@material-ui/core/Paper'
 
@@ -29,7 +29,7 @@ type Props = {
 export default function Home({ allPostsData }: Props) {
   return (
     <Layout home>
-      <GlobalStyle />
+      {/* <GlobalStyle /> */}
       <Head>
         <title>{siteTitle}</title>
       </Head>

@@ -6,6 +6,7 @@ import {
 } from '@material-ui/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import theme from 'src/styles/theme'
+import GlobalStyle from 'src/styles/globalStyles'
 
 const MyApp = ({ Component, pageProps }): JSX.Element => {
   // Remove the server-side injected CSS.(https://material-ui.com/guides/server-rendering/)
@@ -21,6 +22,7 @@ const MyApp = ({ Component, pageProps }): JSX.Element => {
       <MaterialUIThemeProvider theme={theme}>
         <StyledComponentsThemeProvider theme={theme}>
           <CssBaseline />
+          <GlobalStyle />
           <Component {...pageProps} />
         </StyledComponentsThemeProvider>
       </MaterialUIThemeProvider>
