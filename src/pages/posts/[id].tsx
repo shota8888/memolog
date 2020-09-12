@@ -1,9 +1,9 @@
 import Head from 'next/head'
-import Layout from '../../components/layout'
-import { getAllPostIds, getPostData } from '../../lib/posts'
-import Date from '../../components/date'
-import utilStyles from '../../styles/utils.module.scss'
+import Layout from 'src/components/layout'
+import { getAllPostIds, getPostData } from 'src/lib/posts'
+import Date from 'src/components/date'
 import { GetStaticProps, GetStaticPaths } from 'next'
+import utilStyles from 'src/styles/util-styles'
 
 type Props = {
   postData: {
@@ -20,10 +20,10 @@ export default function Post({ postData }: Props) {
         <title>{postData.title}</title>
       </Head>
       <article>
-        <h1 className={utilStyles.headingXl}>{postData.title}</h1>
-        <div className={utilStyles.lightText}>
+        <HeadingXl>{postData.title}</HeadingXl>
+        <LightText>
           <Date dateString={postData.date} />
-        </div>
+        </LightText>
         <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
       </article>
     </Layout>
@@ -46,3 +46,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     }
   }
 }
+
+const HeadingXl = utilStyles.Heading.Xl
+const LightText = utilStyles.lightText
