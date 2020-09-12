@@ -1,6 +1,6 @@
 import Head from 'next/head'
-import styles from './layout.module.scss'
-import utilStyles from '../styles/utils.module.scss'
+import styled from 'styled-components'
+import utilStyles from 'src/styles/util-styles'
 import Link from 'next/link'
 
 const name = 'shota'
@@ -14,7 +14,7 @@ export default function Layout({
   home?: boolean
 }) {
   return (
-    <div className={styles.container}>
+    <Container> 
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
@@ -30,43 +30,75 @@ export default function Layout({
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <header className={styles.header}>
+      <Header>
         {home ? (
           <>
-            <img
+            <HeaderHomeImage
               src="/images/profile.jpg"
-              className={`${styles.headerHomeImage} ${utilStyles.borderCircle}`}
+              //className={`${styles.headerHomeImage}`}
               alt={name}
             />
-            <h1 className={utilStyles.heading2Xl}>{name}</h1>
+            <HeadingXXl>{name}</HeadingXXl>
           </>
         ) : (
           <>
             <Link href="/">
               <a>
-                <img
+                <HeaderImage
                   src="/images/profile.jpg"
-                  className={`${styles.headerImage} ${utilStyles.borderCircle}`}
+                  //className={`${styles.headerImage}`}
                   alt={name}
                 />
               </a>
             </Link>
-            <h2 className={utilStyles.headingLg}>
+            <HeadingLg>
               <Link href="/">
-                <a className={utilStyles.colorInherit}>{name}</a>
+                <ColorInherit>{name}</ColorInherit>
               </Link>
-            </h2>
+            </HeadingLg>
           </>
         )}
-      </header>
+      </Header>
       <main>{children}</main>
       {!home && (
-        <div className={styles.backToHome}>
+        <BackToHome>
           <Link href="/">
             <a>← Back to home</a>
           </Link>
-        </div>
+        </BackToHome>
       )}
-      </div>
+    </Container>
   )
 }
+
+const HeadingXXl = utilStyles.Heading.XXl
+const HeadingLg = utilStyles.Heading.Lg
+const BorderCircle = utilStyles.borderCircle
+const ColorInherit = utilStyles.colorInherit
+
+const HeaderImage = styled(BorderCircle)`
+  width: 6rem;
+  height: 6rem;
+`
+
+const HeaderHomeImage = styled(BorderCircle)`
+  width: 8rem;
+  height: 8rem;
+`
+
+const Container = styled.div`
+  max-width: 36rem;
+  padding: 0 1rem;
+  margin: 3rem auto 6rem;
+`
+
+const Header = styled.header`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
+const BackToHome = styled.div`
+  margin: 3rem 0 0;
+`
+
