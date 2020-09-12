@@ -37,7 +37,7 @@ const utilStyles = {
       color: #999;
   `,
   borderCircle: styled.img`
-    border-radius: 9999px;
+    border-radius: 50px;
   `,
   colorInherit: styled.a`
     color: inherit; 

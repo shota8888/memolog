@@ -2,10 +2,10 @@ import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
 import Layout, { siteTitle } from 'src/components/layout'
+import Profile from 'src/components/profile' 
 import Date from '../components/date'
 import { getSortedPostsData } from 'src/lib/posts'
 import styled from 'styled-components'
-// import GlobalStyle from 'src/styles/globalStyles'
 import utilStyles from 'src/styles/util-styles'
 import Paper from '@material-ui/core/Paper'
 
@@ -29,17 +29,10 @@ type Props = {
 export default function Home({ allPostsData }: Props) {
   return (
     <Layout home>
-      {/* <GlobalStyle /> */}
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <HeadingMd>
-        <p>Hello!</p>
-        <p>
-          (This is a sample website - you’ll be building a site like this on{' '}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
-        </p>
-      </HeadingMd>
+      <div>
       <HeadingMd>
         <HeadingLg>Blog</HeadingLg>
         <List>
@@ -56,6 +49,7 @@ export default function Home({ allPostsData }: Props) {
           ))}
         </List>
       </HeadingMd>
+      </div>
     </Layout>
   )
 }
@@ -68,4 +62,14 @@ const LightText = utilStyles.lightText
 const PaperItem = styled(Paper)`
   margin: 0 0 1.25rem;
   padding: ${(props) => props.theme.spacing(2)}px;
+`
+
+const SideProfile = styled.div`
+  display: flex;
+  justify-content: flex-start;
+`
+
+const MainCenter = styled.div`
+  display: flex;
+  justify-content: center;
 `
