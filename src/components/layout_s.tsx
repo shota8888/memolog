@@ -2,8 +2,6 @@ import Head from 'next/head'
 import styled from 'styled-components'
 import utilStyles from 'src/styles/util-styles'
 import Link from 'next/link'
-import Profile from 'src/components/profile' 
-import Header from 'src/components/header'
 
 const name = 'shota'
 export const siteTitle = 'Next.js Sample Website'
@@ -32,18 +30,43 @@ export default function Layout({
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <Profile />
-      <div css="width: 100%;">
-        <Header />
-        <main>{children}</main>
-      </div>
-      {/* {!home && (
+      <Header>
+        {home ? (
+          <>
+            <HeaderHomeImage
+              src="/images/profile.jpg"
+              //className={`${styles.headerHomeImage}`}
+              alt={name}
+            />
+            <HeadingXXl>{name}</HeadingXXl>
+          </>
+        ) : (
+          <>
+            <Link href="/">
+              <a>
+                <HeaderImage
+                  src="/images/profile.jpg"
+                  //className={`${styles.headerImage}`}
+                  alt={name}
+                />
+              </a>
+            </Link>
+            <HeadingLg>
+              <Link href="/">
+                <ColorInherit>{name}</ColorInherit>
+              </Link>
+            </HeadingLg>
+          </>
+        )}
+      </Header>
+      <main>{children}</main>
+      {!home && (
         <BackToHome>
           <Link href="/">
             <a>← Back to home</a>
           </Link>
         </BackToHome>
-      )} */}
+      )}
     </Container>
   )
 }
@@ -64,15 +87,16 @@ const HeaderHomeImage = styled(BorderCircle)`
 `
 
 const Container = styled.div`
-  display: flex;
+  max-width: 36rem;
   padding: 0 1rem;
+  /* margin: 3rem auto 6rem; */
 `
 
-// const Header = styled.header`
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-// `
+const Header = styled.header`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
 
 const BackToHome = styled.div`
   margin: 3rem 0 0;
