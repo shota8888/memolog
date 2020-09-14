@@ -1,16 +1,16 @@
 import Head from 'next/head'
 import styled from 'styled-components'
 import utilStyles from 'src/styles/util-styles'
-import Link from 'next/link'
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper'
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
-import LinkIcon from '@material-ui/icons/Link';
 import PermIdentityIcon from '@material-ui/icons/PermIdentity';
 import SchoolIcon from '@material-ui/icons/School';
+import TwitterIcon from '@material-ui/icons/Twitter';
+import GitHubIcon from '@material-ui/icons/GitHub';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 
@@ -19,21 +19,24 @@ const name = 'shota'
 export default function Profile() {
 
   return (
-    <Style>
+    <_Profile>
+      <$Paper variant="outlined">
       <ProfileImage
         src="/images/profile.jpg"
         alt={name}
       />
       <HeadingLg>{name}</HeadingLg>
-      <HeadingMd css="width: 80%">
-        <p>Hello!</p>
-      </HeadingMd>
+      
+        <p>大学では情報工学を専攻しています．Webアプリ開発に興味があり，フロントエンドの勉強をしてます．<br />
+        主にReactとTypescroptで開発することが多いです．
+        </p>
+      </$Paper>
       <$List>
         <ListItem>
           <ListItemAvatar>
-            <Avatar>
+            <$Avatar>
               <SchoolIcon />
-            </Avatar>
+            </$Avatar>
           </ListItemAvatar>
           <$ListItemText primary="University" secondary={
             <>
@@ -46,9 +49,9 @@ export default function Profile() {
         <Divider variant="inset" component="li" />
         <ListItem>
           <ListItemAvatar>
-            <Avatar>
+            <$Avatar>
               <PermIdentityIcon />
-            </Avatar>
+            </$Avatar>
           </ListItemAvatar>
           <$ListItemText primary="Age" secondary={
             <>
@@ -59,43 +62,58 @@ export default function Profile() {
           } />
         </ListItem>
         <Divider variant="inset" component="li" />
-        <ListItem alignItems="flex-start">
+        <ListItem>
           <ListItemAvatar>
-            <Avatar>
-              <LinkIcon />
-            </Avatar>
+            <$Avatar>
+              <TwitterIcon />
+            </$Avatar>
           </ListItemAvatar>
-          <$ListItemText primary="Link" secondary={
+          <$ListItemText primary="Twitter" secondary={
             <>
               <Typography component="span" color="textPrimary">
-                <a href="https://twitter.com/sh_sh_8888">Twitter</a><br />
-                <a href="https://github.com/shota8888">Github</a>
+                <a href="https://twitter.com/sh_sh_8888" target="_blank" rel="noopener">@sh_sh_8888</a>
+              </Typography> 
+            </>
+          } />
+        </ListItem>
+        <Divider variant="inset" component="li" />
+        <ListItem>
+          <ListItemAvatar>
+            <$Avatar>
+              <GitHubIcon />
+            </$Avatar>
+          </ListItemAvatar>
+          <$ListItemText primary="Github" secondary={
+            <>
+              <Typography component="span" color="textPrimary">
+                <a href="https://github.com/shota8888" target="_blank" rel="noopener">shota8888</a>
               </Typography> 
             </>
           } />
         </ListItem>
       </$List>
-    </Style>
+    </_Profile>
   )
 }
 
-const Style = styled.div`
-  width: 450px;
-  margin-top: 2rem;
+const _Profile = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 450px;
+  margin-top: 2rem;
   border-right: thin solid rgba(0,0,0,0.3);
 `
 
-const $List = styled(List)`
-  width: 100%;
-  max-width: 300px;
-  margin-top: 1rem;
-`
-
-const $ListItemText = styled(ListItemText)`
-  color: rgba(0,0,0,0.6);
+const $Paper = styled(Paper)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 16px;
+  width: 85%;
+  padding: ${(props) => props.theme.spacing(2)}px;
+  border-radius: 8px;
+  box-shadow: 1px 1px 12px #b4b4b4; 
 `
 
 const ProfileImage = styled.img`
@@ -104,26 +122,18 @@ const ProfileImage = styled.img`
   border-radius: 100px;
 `
 
-const HeadingLg = utilStyles.Heading.Lg
-const HeadingMd = utilStyles.Heading.Md
-
-
-const HeadingXl = utilStyles.Heading.Xl
-const ColorInherit = utilStyles.colorInherit
-
-const Container = styled.div`
-  max-width: 36rem;
-  padding: 0 1rem;
-  margin: 3rem auto 6rem;
+const $List = styled(List)`
+  width: 100%;
+  max-width: 300px;
+  margin-top: 1rem;
 `
 
-const Header = styled.header`
-  display: flex;
-  justify-content: flex-start;
-  /* flex-direction: column;
-  align-items: center; */
+const $Avatar = styled(Avatar)`
+  background-color: #646464;
 `
 
-const BackToHome = styled.div`
-  margin: 3rem 0 0;
+const $ListItemText = styled(ListItemText)`
+  color: rgba(0,0,0,0.6);
 `
+
+const HeadingLg = utilStyles.Heading.Lg;
