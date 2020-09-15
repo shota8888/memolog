@@ -36,14 +36,15 @@ export default function Layout({
       <div css="width: 100%;">
         <Header />
         <main>{children}</main>
-      </div>
-      {/* {!home && (
+      
+      {!home && (
         <BackToHome>
           <Link href="/">
             <a>← Back to home</a>
           </Link>
         </BackToHome>
-      )} */}
+      )}
+      </div>
     </Container>
   )
 }

@@ -17,7 +17,6 @@ import Typography from '@material-ui/core/Typography';
 const name = 'shota'
 
 export default function Profile() {
-
   return (
     <_Profile>
       <$Paper variant="outlined">
@@ -26,7 +25,6 @@ export default function Profile() {
         alt={name}
       />
       <HeadingLg>{name}</HeadingLg>
-      
         <p>大学では情報工学を専攻しています．Webアプリ開発に興味があり，フロントエンドの勉強をしてます．<br />
         主にReactとTypescroptで開発することが多いです．
         </p>

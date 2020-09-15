@@ -18,10 +18,7 @@ const GlobalStyle = createGlobalStyle`
   a {
     color: #0070f3;
     text-decoration: none;
-    
-    &:hover {
-    text-decoration: underline;
-    }
+    cursor: pointer;
   }
 
   img {
