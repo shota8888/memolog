@@ -1,75 +1,37 @@
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
-import Link from 'next/link'
-import Layout, { siteTitle } from 'src/components/layout'
-import Profile from 'src/components/profile' 
-import Date from '../components/date'
+import Layout, { siteTitle } from 'src/components/layout' 
+import Blog, { BlogProps } from 'src/components/blog'
+import { PaginationProps } from 'src/components/pagination'
 import { getSortedPostsData } from 'src/lib/posts'
-import styled from 'styled-components'
-import utilStyles from 'src/styles/util-styles'
-import Paper from '@material-ui/core/Paper'
 
-export const getStaticProps: GetStaticProps = async () => {
-  const allPostsData = getSortedPostsData()
-  return {
-    props: {
-      allPostsData
-    }
-  }
-}
+const Pagination_size = 5;
 
-type Props = {
-  allPostsData: {
-    id: string
-    title: string
-    date: string
-  }[]
-}
-
-export default function Home({ allPostsData }: Props) {
+const Home = (props: BlogProps) => {
   return (
     <Layout home>
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <div>
-      <HeadingMd>
-        <HeadingLg>Blog</HeadingLg>
-        <List>
-          {allPostsData.map(({ id, date, title }) => (
-            <PaperItem component="li" key={id} variant="outlined">
-              <Link href="/posts/[id]" as={`/posts/${id}`}>
-                <a>{title}</a>
-              </Link>
-              <br />
-              <LightText>
-                <Date dateString={date} />
-              </LightText>
-            </PaperItem>
-          ))}
-        </List>
-      </HeadingMd>
-      </div>
+      <Blog posts={props.posts} pagination={props.pagination} />
     </Layout>
   )
 }
 
-const HeadingLg = utilStyles.Heading.Lg
-const HeadingMd = utilStyles.Heading.Md
-const List = utilStyles.List.list
-const LightText = utilStyles.lightText
+export const getStaticProps: GetStaticProps<BlogProps> = async () => {  
+  const postsData = getSortedPostsData()
+  const pagination: PaginationProps = {}
 
-const PaperItem = styled(Paper)`
-  margin: 0 0 1.25rem;
-  padding: ${(props) => props.theme.spacing(2)}px;
-`
+  if (postsData.length > Pagination_size) {
+    pagination.next = '/page2';
+  }
 
-const SideProfile = styled.div`
-  display: flex;
-  justify-content: flex-start;
-`
+  return {
+    props: {
+      posts: postsData.slice(0, Pagination_size),
+      pagination,
+    },
+  };
+}
 
-const MainCenter = styled.div`
-  display: flex;
-  justify-content: center;
-`
+export default Home;

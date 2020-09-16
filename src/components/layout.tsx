@@ -36,45 +36,29 @@ export default function Layout({
       <div css="width: 100%;">
         <Header />
         <main>{children}</main>
+      
+        {!home && (
+          <BackToHome>
+            <Link href="/">
+              <_A>← ホーム</_A>
+            </Link>
+          </BackToHome>
+        )}
       </div>
-      {/* {!home && (
-        <BackToHome>
-          <Link href="/">
-            <a>← Back to home</a>
-          </Link>
-        </BackToHome>
-      )} */}
     </Container>
   )
 }
-
-const HeadingXXl = utilStyles.Heading.XXl
-const HeadingLg = utilStyles.Heading.Lg
-const BorderCircle = utilStyles.borderCircle
-const ColorInherit = utilStyles.colorInherit
-
-const HeaderImage = styled(BorderCircle)`
-  width: 6rem;
-  height: 6rem;
-`
-
-const HeaderHomeImage = styled(BorderCircle)`
-  width: 8rem;
-  height: 8rem;
-`
 
 const Container = styled.div`
   display: flex;
   padding: 0 1rem;
 `
 
-// const Header = styled.header`
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-// `
-
 const BackToHome = styled.div`
-  margin: 3rem 0 0;
+  width: 60%;
+  margin: 5rem auto;
+  padding-top: 1rem;
+  border-top: thin solid rgba(0,0,0,0.3);
 `
 
+const _A = utilStyles.PaginationA;

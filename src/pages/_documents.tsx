@@ -53,7 +53,6 @@ export default class CustomDocument extends NextDocument {
       <Html lang="ja-JP">
         <Head>
           <link rel="icon" href="/favicon.ico" />
-          <link href="https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&display=swap" rel="stylesheet"></link>
         </Head>
         <body>
           <Main />

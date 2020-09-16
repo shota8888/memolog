@@ -40,8 +40,11 @@ const utilStyles = {
   lightText: styled.small`
       color: #999;
   `,
-  borderCircle: styled.img`
-    border-radius: 50px;
+  PaginationA: styled.a`
+    color: rgba(0,0,0,0.5);
+    &:hover {
+      color: rgba(0,0,0,1.0);
+    };
   `,
   colorInherit: styled.a`
     color: inherit; 
@@ -51,4 +54,4 @@ const utilStyles = {
   `
 }
 
-export default utilStyles
+export default utilStyles;
