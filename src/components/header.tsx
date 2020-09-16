@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import styled from 'styled-components'
 
 export default function Header() {
@@ -8,7 +9,9 @@ export default function Header() {
         <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet"></link>
       </Head>
       <Heading>
-        MemoLog
+        <Link href="/">
+            <a css="color: #000;">MemoLog</a>
+        </Link>
       </Heading>
     </>
   )

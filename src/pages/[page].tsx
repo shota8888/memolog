@@ -40,6 +40,8 @@ export const getStaticProps: GetStaticProps<BlogProps, PageUrl> = async ({ param
 
   const pagination: PaginationProps = {};
 
+  pagination.current = currentPage;
+
   if (currentPage < pages.length) {
     pagination.next = `page${currentPage + 1}`;
   }

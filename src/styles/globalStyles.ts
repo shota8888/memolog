@@ -16,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   a {
-    color: #0070f3;
+    color: #000;
     text-decoration: none;
     cursor: pointer;
   }

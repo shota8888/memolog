@@ -25,8 +25,8 @@ export default function Profile() {
         alt={name}
       />
       <HeadingLg>{name}</HeadingLg>
-        <p>大学では情報工学を専攻しています．Webアプリ開発に興味があり，フロントエンドの勉強をしてます．<br />
-        主にReactとTypescroptで開発することが多いです．
+        <p>日々の技術的なメモを残していくサイトです．<br />
+        Webアプリ開発に興味があり，フロントエンドの勉強をしてます．主にReactとTypescroptで開発することが多いです．
         </p>
       </$Paper>
       <$List>
@@ -69,7 +69,7 @@ export default function Profile() {
           <$ListItemText primary="Twitter" secondary={
             <>
               <Typography component="span" color="textPrimary">
-                <a href="https://twitter.com/sh_sh_8888" target="_blank" rel="noopener">@sh_sh_8888</a>
+                <_A href="https://twitter.com/sh_sh_8888" target="_blank" rel="noopener">@sh_sh_8888</_A>
               </Typography> 
             </>
           } />
@@ -84,7 +84,7 @@ export default function Profile() {
           <$ListItemText primary="Github" secondary={
             <>
               <Typography component="span" color="textPrimary">
-                <a href="https://github.com/shota8888" target="_blank" rel="noopener">shota8888</a>
+                <_A href="https://github.com/shota8888" target="_blank" rel="noopener">shota8888</_A>
               </Typography> 
             </>
           } />
@@ -101,6 +101,7 @@ const _Profile = styled.div`
   width: 450px;
   margin-top: 2rem;
   border-right: thin solid rgba(0,0,0,0.3);
+  height: 100%;
 `
 
 const $Paper = styled(Paper)`
@@ -132,6 +133,13 @@ const $Avatar = styled(Avatar)`
 
 const $ListItemText = styled(ListItemText)`
   color: rgba(0,0,0,0.6);
+`
+
+const _A = styled.a`
+  color: rgba(0,0,255,0.6);
+  &:hover {
+    color: rgba(0,0,255,1.0);
+  }
 `
 
 const HeadingLg = utilStyles.Heading.Lg;

@@ -3,6 +3,7 @@ import Layout from 'src/components/layout'
 import { getAllPostIds, getPostData } from 'src/lib/posts'
 import Date from 'src/components/date'
 import { GetStaticProps, GetStaticPaths } from 'next'
+import styled from 'styled-components'
 import utilStyles from 'src/styles/util-styles'
 
 type Props = {
@@ -19,13 +20,13 @@ export default function Post({ postData }: Props) {
       <Head>
         <title>{postData.title}</title>
       </Head>
-      <article>
+      <_Post>
         <HeadingXl>{postData.title}</HeadingXl>
         <LightText>
           <Date dateString={postData.date} />
         </LightText>
         <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
-      </article>
+      </_Post>
     </Layout>
   )
 }
@@ -47,5 +48,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
 }
 
+const _Post = styled.article`
+  width: 60%;
+  margin: 0 auto;
+`
 const HeadingXl = utilStyles.Heading.Xl
 const LightText = utilStyles.lightText
