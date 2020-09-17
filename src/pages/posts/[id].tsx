@@ -5,6 +5,7 @@ import Date from 'src/components/date'
 import { GetStaticProps, GetStaticPaths } from 'next'
 import styled from 'styled-components'
 import utilStyles from 'src/styles/util-styles'
+import media from 'src/styles/mediaqueries'
 
 type Props = {
   postData: {
@@ -51,6 +52,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 const _Post = styled.article`
   width: 60%;
   margin: 0 auto;
+  ${media.phone`
+    width: 90%;
+  `}
 `
 const HeadingXl = utilStyles.Heading.Xl
 const LightText = utilStyles.lightText

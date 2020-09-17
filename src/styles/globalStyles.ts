@@ -9,6 +9,9 @@ const GlobalStyle = createGlobalStyle`
       Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     line-height: 1.6;
     font-size: 18px;
+    @media (max-width: 1024px) {
+      font-size: 16px;
+    }
   }
 
   * {
