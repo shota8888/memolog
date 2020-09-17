@@ -5,6 +5,7 @@ import Date from '../components/date'
 import styled from 'styled-components'
 import utilStyles from 'src/styles/util-styles'
 import Paper from '@material-ui/core/Paper'
+import media from 'src/styles/mediaqueries'
 
 export type BlogProps = {
   posts: PostItems[];
@@ -41,6 +42,9 @@ const _Blog = styled.div`
   position: relative;
   width: 60%;
   margin: 0 auto;
+  ${media.phone`
+    width: 90%;
+  `}
 `
 
 const PaperItem = styled(Paper)`
@@ -63,5 +67,4 @@ const _A = styled.a`
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-
 `
