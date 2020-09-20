@@ -40,13 +40,6 @@ const utilStyles = {
       line-height: 1.6
     `
   },
-  List :{
-    list: styled.ul`
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    `
-  },
   lightText: styled.small`
       color: #999;
   `,

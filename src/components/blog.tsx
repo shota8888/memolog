@@ -3,8 +3,6 @@ import { PostItems } from 'src/lib/posts'
 import Pagination, { PaginationProps } from 'src/components/pagination';
 import Date from '../components/date'
 import styled from 'styled-components'
-import utilStyles from 'src/styles/util-styles'
-import Paper from '@material-ui/core/Paper'
 import media from 'src/styles/mediaqueries'
 
 export type BlogProps = {
@@ -15,56 +13,82 @@ export type BlogProps = {
 export default function Blog(props: BlogProps) {
   return (
     <_Blog>
-      <List>
-        {props.posts.map(({ id, date, title }) => (
-          <PaperItem component="li" key={id} variant="outlined">
-            <Link href="/posts/[id]" as={`/posts/${id}`}>
-              <div>
-                <_A>{title}</_A>
+      <_ListGrid>
+        {props.posts.map(({ id, date, title, coverImage }) => (
+          <_ListItems key={id}>
+            <Link href="/posts/[id]" as={`/posts/${id}`}> 
+              <_A>
+                <_CoverImage src={coverImage} />
+                <div css="padding: 0 1rem 1rem;">
+                  <_Title>{title}</_Title>
+                <LightText>
+                  <Date dateString={date} />
+                </LightText>
               </div>
+              </_A>
             </Link>
-            <br />
-            <LightText>
-              <Date dateString={date} />
-            </LightText>
-          </PaperItem>
+          </_ListItems>
         ))}
-      </List>
+      </_ListGrid>
       <Pagination previous={props.pagination.previous} current={props.pagination.current} next={props.pagination.next} />
     </_Blog>
   )
 }
 
-const List = utilStyles.List.list
-const LightText = utilStyles.lightText
-
 const _Blog = styled.div`
   position: relative;
-  width: 60%;
+  width: 80%;
   margin: 0 auto;
+`
+
+const _ListGrid = styled.ul`
+  list-style: none;
+  display: grid;
+  grid-template-columns: 40% 40%;
+  grid-row-gap: 2rem;
+  justify-content: space-around;
+  padding: 0;
+  margin: 0;
   ${media.phone`
-    width: 90%;
+    grid-template-columns: 1fr;
   `}
 `
 
-const PaperItem = styled(Paper)`
-  margin: 0 0 1.25rem;
-  padding: ${(props) => props.theme.spacing(2)}px;
+const _ListItems = styled.li`
   position: relative;
+  box-shadow: 2px 2px 6px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
   &:hover {
-    box-shadow: 1px 1px 5px #b4b4b4
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2); 
+    transition: .3s;
+    transform: translateY(-2px);
   }
 `
 
-const _A = styled.a`
-  position: absolute; 
-  display: block;
-  top: 0;
-  left: 0;
+const _CoverImage = styled.img`
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
   width: 100%;
-  height: 100%;
-  padding: 1rem;
+  object-fit: cover;
+`
+
+const _Title = styled.h2`
+  font-size: 1.5rem;
+  font-weight: 700;
+  ${media.tablet`
+    font-size: 1rem;
+  `} 
+`
+
+const _A = styled.a`
   overflow: hidden;
-  white-space: nowrap;
   text-overflow: ellipsis;
+  overflow-wrap: normal;
+  color: rgba(0,0,0,0.8);
+`
+
+const LightText = styled.small`
+  position: absolute;
+  bottom: 10px;
+  color: #999;
 `

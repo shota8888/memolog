@@ -9,7 +9,6 @@ export type PaginationProps = {
 }
 
 const Pagination = (props: PaginationProps) => {
-  
 
   return (
     <_Pagination>
@@ -52,6 +51,7 @@ export function convertToHref(url: string) {
 
 const _Pagination = styled.div`
   display: flex;
+  margin: 4rem 0 5rem;
 `
 
 const _Previous = styled.div`

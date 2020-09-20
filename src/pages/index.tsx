@@ -4,8 +4,7 @@ import Layout, { siteTitle } from 'src/components/layout'
 import Blog, { BlogProps } from 'src/components/blog'
 import { PaginationProps } from 'src/components/pagination'
 import { getSortedPostsData } from 'src/lib/posts'
-
-const Pagination_size = 5;
+import { Config } from 'src/utils/Config';
 
 const Home = (props: BlogProps) => {
   return (
@@ -22,13 +21,13 @@ export const getStaticProps: GetStaticProps<BlogProps> = async () => {
   const postsData = getSortedPostsData()
   const pagination: PaginationProps = {}
 
-  if (postsData.length > Pagination_size) {
+  if (postsData.length > Config.pagination_size) {
     pagination.next = '/page2';
   }
 
   return {
     props: {
-      posts: postsData.slice(0, Pagination_size),
+      posts: postsData.slice(0, Config.pagination_size),
       pagination,
     },
   };

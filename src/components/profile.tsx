@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import utilStyles from 'src/styles/util-styles'
-import { DrawerContext } from "./layout"
+import { DrawerContext } from './layout'
+import { Config } from 'src/utils/Config'
 import Paper from '@material-ui/core/Paper'
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -18,8 +19,6 @@ import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 import media from 'src/styles/mediaqueries'
 
-const name = 'shota'
-
 export default function Profile() {
   const drawerContext = React.useContext(DrawerContext)
 
@@ -32,9 +31,9 @@ export default function Profile() {
         <$Paper variant="outlined">
           <ProfileImage
             src="/images/profile.jpg"
-            alt={name}
+            alt={Config.name}
           />
-          <HeadingLg>{name}</HeadingLg>
+          <HeadingLg>{Config.name}</HeadingLg>
             <p>このサイトは日々の技術的なメモを残していくサイトです．<br />
             Webアプリ開発に興味があり，フロントエンドの勉強をしてます．主にReactとTypescroptで開発することが多いです．
             </p>
@@ -170,9 +169,10 @@ const $ListItemText = styled(ListItemText)`
 `
 
 const _A = styled.a`
-  color: rgba(0,0,255,0.6);
+  color: rgba(0,68,204,1.0);
+  font-weight: 400;
   &:hover {
-    color: rgba(0,0,255,1.0);
+    font-weight: 600;
   }
 `
 

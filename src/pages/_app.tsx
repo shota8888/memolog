@@ -9,7 +9,6 @@ import theme from 'src/styles/theme'
 import GlobalStyle from 'src/styles/globalStyles'
 
 const MyApp = ({ Component, pageProps }): JSX.Element => {
-  // Remove the server-side injected CSS.(https://material-ui.com/guides/server-rendering/)
   useEffect(() => {
     const jssStyles = document.querySelector('#jss-server-side')
     if (jssStyles && jssStyles.parentNode) {

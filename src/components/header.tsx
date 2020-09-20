@@ -51,10 +51,6 @@ const ProfileIcon = styled.img`
   ${media.desktop`
     display: block;
   `}
-  ${media.phone`
-    width: 1.7rem;
-    height: 1.7rem;
-  `}
 `
 
 const _A = styled.a`

@@ -3,12 +3,12 @@ import { getSortedPostsData, getAllPostIds } from 'src/lib/posts'
 import Layout from 'src/components/layout'
 import Blog, { BlogProps } from 'src/components/blog'
 import { PaginationProps } from 'src/components/pagination';
+import { convertTo2D } from 'src/utils/Pagination'
+import { Config } from 'src/utils/Config';
 
 type PageUrl = {
   page: string;
 };
-
-const Pagination_size = 5;
 
 const PaginatePosts = (props: BlogProps) => {
   return (
@@ -20,7 +20,7 @@ const PaginatePosts = (props: BlogProps) => {
 
 export const getStaticPaths: GetStaticPaths<PageUrl> = async () => {
   const postsId = getAllPostIds();
-  const pages = convertTo2D(postsId, Pagination_size);
+  const pages = convertTo2D(postsId, Config.pagination_size);
 
   return {
     paths: pages.slice(1).map((_, ind) => ({
@@ -34,7 +34,7 @@ export const getStaticPaths: GetStaticPaths<PageUrl> = async () => {
 
 export const getStaticProps: GetStaticProps<BlogProps, PageUrl> = async ({ params }) => {
   const posts = getSortedPostsData();
-  const pages = convertTo2D(posts, Pagination_size);
+  const pages = convertTo2D(posts, Config.pagination_size);
   const currentPage = Number(params!.page.replace('page', ''));
   const currentInd = currentPage - 1;
 
@@ -60,18 +60,18 @@ export const getStaticProps: GetStaticProps<BlogProps, PageUrl> = async ({ param
   };
 }
 
-export function convertTo2D<T>(arr: T[], size: number) {
-  const res: T[][] = [];
+// export function convertTo2D<T>(arr: T[], size: number) {
+//   const res: T[][] = [];
 
-  arr.forEach((val, ind) => {
-    if (ind % size === 0) {
-      res.push([val]);
-    } else {
-      res[res.length - 1].push(val);
-    }
-  });
+//   arr.forEach((val, ind) => {
+//     if (ind % size === 0) {
+//       res.push([val]);
+//     } else {
+//       res[res.length - 1].push(val);
+//     }
+//   });
 
-  return res;
-}
+//   return res;
+// }
 
 export default PaginatePosts;
