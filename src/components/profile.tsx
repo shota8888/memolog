@@ -169,7 +169,6 @@ const $ListItemText = styled(ListItemText)`
 `
 
 const _A = styled.a`
-  color: rgba(0,68,204,1.0);
   font-weight: 400;
   &:hover {
     font-weight: 600;

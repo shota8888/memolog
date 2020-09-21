@@ -19,7 +19,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   a {
-    color: #000;
+    color: rgba(0,68,204,1.0);
     text-decoration: none;
     cursor: pointer;
   }

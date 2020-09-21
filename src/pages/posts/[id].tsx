@@ -11,6 +11,7 @@ type Props = {
   postData: {
     title: string
     date: string
+    coverImage: string
     contentHtml: string
   }
 }
@@ -22,11 +23,14 @@ export default function Post({ postData }: Props) {
         <title>{postData.title}</title>
       </Head>
       <_Post>
-        <HeadingXl>{postData.title}</HeadingXl>
-        <LightText>
-          <Date dateString={postData.date} />
-        </LightText>
-        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        <_PostHeader>
+          <HeadingXl>{postData.title}</HeadingXl>
+          <LightText>
+            <Date dateString={postData.date} />
+          </LightText>
+        </_PostHeader>
+        <_CoverImage src={postData.coverImage} />
+        <_PostContent dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
       </_Post>
     </Layout>
   )
@@ -50,11 +54,30 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 }
 
 const _Post = styled.article`
+  line-height: 2;
   width: 60%;
   margin: 0 auto;
   ${media.phone`
     width: 90%;
+    font-size: 0.9rem;
   `}
 `
+
+const _PostHeader = styled.div`
+  margin: 80px auto;
+`
+
+const _CoverImage = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  box-shadow: 20px 30px 30px -10px rgba(0,0,0,.2), 0 18px 36px -18px rgba(0,0,0,.22);
+  border-radius: 5px;
+`
+
+const _PostContent = styled.div`
+  margin: 80px auto;
+`
+
 const HeadingXl = utilStyles.Heading.Xl
 const LightText = utilStyles.lightText
