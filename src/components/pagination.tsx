@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import styled from 'styled-components'
 import utilStyles from 'src/styles/util-styles'
+import { convertToHref } from 'src/utils/Pagination'
 
 export type PaginationProps = {
   previous?: string;
@@ -14,7 +15,7 @@ const Pagination = (props: PaginationProps) => {
     <_Pagination>
       {props.previous && (
         <_Previous>
-          <Link href={convertToHref(props.previous)} as={props.previous}>
+          <Link href={convertToHref(props.previous)}>
             <_A>← 前のページ</_A>
           </Link>
         </_Previous>
@@ -32,21 +33,13 @@ const Pagination = (props: PaginationProps) => {
 
       {props.next && (
         <_Next>
-          <Link href={convertToHref(props.next)} as={props.next}>
+          <Link href={convertToHref(props.next)}>
             <_A>次のページ →</_A>
         </Link>
         </_Next>
       )}
     </_Pagination>
   )
-}
-
-export function convertToHref(url: string) {
-  if (url === '/') {
-    return '/';
-  }
-
-  return '/[page]';
 }
 
 const _Pagination = styled.div`
