@@ -6,7 +6,7 @@ coverImage: 'https://source.unsplash.com/Fk2DGAaZJGs'
 
 # このブログについて
 Next.js の勉強をしようと思い，Next.js のチュートリアルを基にできたのがこのブログです．最初からブログを作ろうとは思っていなくて，勉強していたらブログができていました．せっかくなのでこのブログに日々の勉強したメモを残していこうと思います．<br>
-今回は特に書くことがないので，このブログができるまでを書いていきます．
+今回は特に書くことがないので，このブログでしたことと，これから実装していきたいことを書いていきます．
 
 # 技術スタック
 基本的にはチュートリアルにそったので根幹は変わっていません．
@@ -17,38 +17,18 @@ Next.js の勉強をしようと思い，Next.js のチュートリアルを基�
 
 スタイリングはチュートリアルでは CSS Module を使っていますが，今回は styled-components と Material-UI を使いました．
 
-# チュートリアル終了後
+# 追加した機能
+* プロフィール欄
+* ページネーション
+
 機能としてはチュートリアルだけでも十分なのですが，少し質素だったので，プロフィールとページネーションを追加しスタイルを整えました．<br>
 プロフィール蘭はゴリゴリに Material-UI を使ってしまいました．後々変えていくつもりです．<br>
 ページネーションは新たに Paginationコンポーネントと動的なページとして，[page].jsを作成しました．
 
-```Javascript
-export const getStaticProps: GetStaticProps<BlogProps, PageUrl> = async ({ params }) => {
-  const posts = getSortedPostsData();
-  const pages = convertTo2D(posts, Config.pagination_size);
-  const currentPage = Number(params!.page.replace('page', ''));
-  const currentInd = currentPage - 1;
+# 実装したいこと
+* ソースコードのシンタックスハイライト
+  * Markdown でブログを書いて，remark でHTMLにレンダリングするときにコードブロックをシンタックスハイライト対応させる．
+* ダークモード対応
+  * 切り替えボタンでダークモードに切り替えられるようにする．
 
-  const pagination: PaginationProps = {};
-
-  pagination.current = currentPage;
-
-  if (currentPage < pages.length) {
-    pagination.next = `page${currentPage + 1}`;
-  }
-
-  if (currentPage === 2) {
-    pagination.previous = '/';
-  } else {
-    pagination.previous = `page${currentPage - 1}`;
-  }
-
-  return {
-    props: {
-      posts: pages[currentInd],
-      pagination,
-    },
-  };
-}
-```
-
+これから実装したいことがたくさん出てきそうなので，ここは随時更新していきます．これから少しづついい感じのブログにしていきたいです．
