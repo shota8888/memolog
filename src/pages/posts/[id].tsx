@@ -81,7 +81,6 @@ const _PostContent = styled.div`
     line-height: 1.8;
     font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,Courier,monospace;
   }
-
 `
 
 const HeadingXl = utilStyles.Heading.Xl
