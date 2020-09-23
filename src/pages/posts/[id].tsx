@@ -77,6 +77,11 @@ const _CoverImage = styled.img`
 
 const _PostContent = styled.div`
   margin: 80px auto;
+  & .hljs {
+    line-height: 1.8;
+    font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,Courier,monospace;
+  }
+
 `
 
 const HeadingXl = utilStyles.Heading.Xl

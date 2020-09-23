@@ -21,9 +21,9 @@ export default function Blog(props: BlogProps) {
                 <_CoverImage src={coverImage} />
                 <div css="padding: 0 1rem 1rem;">
                   <_Title>{title}</_Title>
-                <LightText>
+                {/* <LightText>
                   <Date dateString={date} />
-                </LightText>
+                </LightText> */}
               </div>
               </_A>
             </Link>

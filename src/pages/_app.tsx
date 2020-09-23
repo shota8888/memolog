@@ -7,6 +7,7 @@ import {
 import CssBaseline from '@material-ui/core/CssBaseline'
 import theme from 'src/styles/theme'
 import GlobalStyle from 'src/styles/globalStyles'
+import 'highlight.js/styles/hybrid.css'
 
 const MyApp = ({ Component, pageProps }): JSX.Element => {
   useEffect(() => {

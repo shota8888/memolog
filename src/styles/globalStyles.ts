@@ -28,6 +28,23 @@ const GlobalStyle = createGlobalStyle`
     max-width: 100%;
     display: block;
   }
+
+  code {
+    background-color: #eee;
+    color: #333;
+    padding: 0.1em 0.4em;
+    font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,Courier,monospace;
+  }
+
+  table {
+    margin: 0 auto;
+    border-collapse: collapse;
+  }
+
+  th, td {
+    padding: 5px;
+    border: 1px solid rgba(0,0,0,0.2);
+  }
 `
 
 export default GlobalStyle
