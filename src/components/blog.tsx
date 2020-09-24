@@ -1,16 +1,17 @@
 import Link from 'next/link';
 import { PostItems } from 'src/lib/posts'
-import Pagination, { PaginationProps } from 'src/components/pagination';
+import Pagination, { IPaginationProps } from 'src/components/pagination';
 import Date from '../components/date'
 import styled from 'styled-components'
+import utilStyles from 'src/styles/util-styles'
 import media from 'src/styles/mediaqueries'
 
-export type BlogProps = {
+export type IBlogProps = {
   posts: PostItems[];
-  pagination: PaginationProps;
+  pagination: IPaginationProps;
 }
 
-export default function Blog(props: BlogProps) {
+export default function Blog(props: IBlogProps) {
   return (
     <_Blog>
       <_ListGrid>
@@ -21,9 +22,9 @@ export default function Blog(props: BlogProps) {
                 <_CoverImage src={coverImage} />
                 <div css="padding: 0 1rem 1rem;">
                   <_Title>{title}</_Title>
-                <LightText>
+                {/* <_LightText>
                   <Date dateString={date} />
-                </LightText>
+                </_LightText> */}
               </div>
               </_A>
             </Link>
@@ -87,7 +88,9 @@ const _A = styled.a`
   color: rgba(0,0,0,0.8);
 `
 
-const LightText = styled.small`
+const LightText = utilStyles.lightText
+
+const _LightText = styled(LightText)`
   position: absolute;
   bottom: 10px;
   color: #999;

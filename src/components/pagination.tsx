@@ -3,13 +3,13 @@ import styled from 'styled-components'
 import utilStyles from 'src/styles/util-styles'
 import { convertToHref } from 'src/utils/Pagination'
 
-export type PaginationProps = {
+export type IPaginationProps = {
   previous?: string;
   current?: number;
   next?: string;
 }
 
-const Pagination = (props: PaginationProps) => {
+const Pagination = (props:IPaginationProps) => {
 
   return (
     <_Pagination>

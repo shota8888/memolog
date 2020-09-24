@@ -55,9 +55,6 @@ const utilStyles = {
   `,
   colorInherit: styled.a`
     color: inherit; 
-  `,
-  padding1px: styled.section`
-    padding-top: 1px;
   `
 }
 

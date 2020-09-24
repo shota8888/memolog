@@ -79,6 +79,7 @@ const _PostContent = styled.div`
   margin: 80px auto;
   & .hljs {
     line-height: 1.8;
+    padding: 1.5rem;
     font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,Courier,monospace;
   }
 `

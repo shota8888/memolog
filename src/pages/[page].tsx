@@ -1,16 +1,16 @@
 import { GetStaticProps, GetStaticPaths } from 'next'
 import { getSortedPostsData, getAllPostIds } from 'src/lib/posts'
 import Layout from 'src/components/layout'
-import Blog, { BlogProps } from 'src/components/blog'
-import { PaginationProps } from 'src/components/pagination';
+import Blog, { IBlogProps } from 'src/components/blog'
+import { IPaginationProps } from 'src/components/pagination'
 import { convertTo2D } from 'src/utils/Pagination'
-import { Config } from 'src/utils/Config';
+import { Config } from 'src/utils/Config'
 
 type PageUrl = {
   page: string;
 };
 
-const PaginatePosts = (props: BlogProps) => {
+const PaginatePosts = (props: IBlogProps) => {
   return (
     <Layout home>
       <Blog posts={props.posts} pagination={props.pagination} />
@@ -32,13 +32,13 @@ export const getStaticPaths: GetStaticPaths<PageUrl> = async () => {
   };
 }
 
-export const getStaticProps: GetStaticProps<BlogProps, PageUrl> = async ({ params }) => {
+export const getStaticProps: GetStaticProps<IBlogProps, PageUrl> = async ({ params }) => {
   const posts = getSortedPostsData();
   const pages = convertTo2D(posts, Config.pagination_size);
   const currentPage = Number(params!.page.replace('page', ''));
   const currentInd = currentPage - 1;
 
-  const pagination: PaginationProps = {};
+  const pagination: IPaginationProps = {};
 
   pagination.current = currentPage;
 
