@@ -22,9 +22,9 @@ export default function Blog(props: IBlogProps) {
                 <_CoverImage src={coverImage} />
                 <div css="padding: 0 1rem 1rem;">
                   <_Title>{title}</_Title>
-                {/* <_LightText>
+                <_LightText>
                   <Date dateString={date} />
-                </_LightText> */}
+                </_LightText>
               </div>
               </_A>
             </Link>
