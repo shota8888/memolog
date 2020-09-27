@@ -2,7 +2,7 @@
 日々の勉強した内容をメモとして残していくためのサイトです．
 
 # DEMO
-[demo](https://user-images.githubusercontent.com/59161023/94363735-5523c480-00ff-11eb-9856-3cc7c028a915.png)
+![demo](https://user-images.githubusercontent.com/59161023/94364477-7935d480-0104-11eb-8161-2e5cec28a9b5.png)
 
 # Requirement
 * React 16.13.1
