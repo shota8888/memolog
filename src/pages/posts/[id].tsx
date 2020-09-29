@@ -16,7 +16,7 @@ type Props = {
   }
 }
 
-export default function Post({ postData }: Props) {
+const Post = ({ postData }: Props) => {
   return (
     <Layout>
       <Head>
@@ -41,7 +41,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths,
     fallback: false
-  }
+  };
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
@@ -50,7 +50,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       postData
     }
-  }
+  };
 }
 
 const _Post = styled.article`
@@ -81,8 +81,11 @@ const _PostContent = styled.div`
     line-height: 1.8;
     padding: 1.5rem;
     font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,Courier,monospace;
+    border-radius: 10px;
   }
 `
 
 const HeadingXl = utilStyles.Heading.Xl
 const LightText = utilStyles.lightText
+
+export default Post;

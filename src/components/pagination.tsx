@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from 'next/link'
 import styled from 'styled-components'
 import utilStyles from 'src/styles/util-styles'
 import { convertToHref } from 'src/utils/Pagination'
@@ -9,7 +9,7 @@ export type IPaginationProps = {
   next?: string;
 }
 
-const Pagination = (props:IPaginationProps) => {
+const Pagination = (props: IPaginationProps) => {
 
   return (
     <_Pagination>
@@ -39,7 +39,7 @@ const Pagination = (props:IPaginationProps) => {
         </_Next>
       )}
     </_Pagination>
-  )
+  );
 }
 
 const _Pagination = styled.div`

@@ -4,23 +4,23 @@ import utilStyles from 'src/styles/util-styles'
 import { DrawerContext } from './layout'
 import { Config } from 'src/utils/Config'
 import Paper from '@material-ui/core/Paper'
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import Avatar from '@material-ui/core/Avatar';
-import IconButton from '@material-ui/core/IconButton';
-import ClearIcon from '@material-ui/icons/Clear';
-import PermIdentityIcon from '@material-ui/icons/PermIdentity';
-import SchoolIcon from '@material-ui/icons/School';
-import TwitterIcon from '@material-ui/icons/Twitter';
-import GitHubIcon from '@material-ui/icons/GitHub';
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
+import List from '@material-ui/core/List'
+import ListItem from '@material-ui/core/ListItem'
+import ListItemText from '@material-ui/core/ListItemText'
+import ListItemAvatar from '@material-ui/core/ListItemAvatar'
+import Avatar from '@material-ui/core/Avatar'
+import IconButton from '@material-ui/core/IconButton'
+import ClearIcon from '@material-ui/icons/Clear'
+import PermIdentityIcon from '@material-ui/icons/PermIdentity'
+import SchoolIcon from '@material-ui/icons/School'
+import TwitterIcon from '@material-ui/icons/Twitter'
+import GitHubIcon from '@material-ui/icons/GitHub'
+import Divider from '@material-ui/core/Divider'
+import Typography from '@material-ui/core/Typography'
 import media from 'src/styles/mediaqueries'
 
-export default function Profile() {
-  const drawerContext = React.useContext(DrawerContext)
+const Profile = () => {
+  const drawerContext = React.useContext(DrawerContext);
 
   return (
     <_Profile>
@@ -176,3 +176,5 @@ const _A = styled.a`
 `
 
 const HeadingLg = utilStyles.Heading.Lg;
+
+export default Profile;

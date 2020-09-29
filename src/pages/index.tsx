@@ -4,7 +4,7 @@ import Layout, { siteTitle } from 'src/components/layout'
 import Blog, { IBlogProps } from 'src/components/blog'
 import { IPaginationProps } from 'src/components/pagination'
 import { getSortedPostsData } from 'src/lib/posts'
-import { Config } from 'src/utils/Config';
+import { Config } from 'src/utils/Config'
 
 const Home = (props: IBlogProps) => {
   return (
@@ -14,12 +14,12 @@ const Home = (props: IBlogProps) => {
       </Head>
       <Blog posts={props.posts} pagination={props.pagination} />
     </Layout>
-  )
+  );
 }
 
 export const getStaticProps: GetStaticProps<IBlogProps> = async () => {  
-  const postsData = getSortedPostsData()
-  const pagination: IPaginationProps = {}
+  const postsData = getSortedPostsData();
+  const pagination: IPaginationProps = {};
 
   if (postsData.length > Config.pagination_size) {
     pagination.next = '/page2';

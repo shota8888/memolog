@@ -1,6 +1,6 @@
-import Link from 'next/link';
+import Link from 'next/link'
 import { PostItems } from 'src/lib/posts'
-import Pagination, { IPaginationProps } from 'src/components/pagination';
+import Pagination, { IPaginationProps } from 'src/components/pagination'
 import Date from '../components/date'
 import styled from 'styled-components'
 import utilStyles from 'src/styles/util-styles'
@@ -22,10 +22,10 @@ export default function Blog(props: IBlogProps) {
                 <_CoverImage src={coverImage} />
                 <div css="padding: 0 1rem 1rem;">
                   <_Title>{title}</_Title>
-                <_LightText>
-                  <Date dateString={date} />
-                </_LightText>
-              </div>
+                  <_LightText>
+                    <Date dateString={date} />
+                  </_LightText>
+                </div>
               </_A>
             </Link>
           </_ListItems>
@@ -33,7 +33,7 @@ export default function Blog(props: IBlogProps) {
       </_ListGrid>
       <Pagination previous={props.pagination.previous} current={props.pagination.current} next={props.pagination.next} />
     </_Blog>
-  )
+  );
 }
 
 const _Blog = styled.div`

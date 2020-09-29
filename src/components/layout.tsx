@@ -8,7 +8,7 @@ import Header from 'src/components/header'
 import Drawer from "@material-ui/core/Drawer"
 import media from 'src/styles/mediaqueries'
 
-export const siteTitle = 'MemoLog'
+export const siteTitle = 'MemoLog';
 
 export const DrawerContext = React.createContext<{
   setDrawerState: React.Dispatch<React.SetStateAction<boolean>>
@@ -16,13 +16,13 @@ export const DrawerContext = React.createContext<{
   setDrawerState: () => {},
 })
 
-export default function Layout({ 
+const Layout = ({ 
   children, 
   home
-}: {
+  }: {
   children: React.ReactNode
   home?: boolean
-}) {
+  }) => {
   const [isOpenDrawer, setDrawerState] = React.useState(false);
 
   return (
@@ -70,7 +70,7 @@ export default function Layout({
         </div>
       </Container>
     </DrawerContext.Provider>
-  )
+  );
 }
 
 const Container = styled.div`
@@ -95,3 +95,5 @@ const BackToHome = styled.div`
 `
 
 const _A = utilStyles.PaginationA;
+
+export default Layout;

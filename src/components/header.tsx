@@ -5,8 +5,8 @@ import styled from 'styled-components'
 import { DrawerContext } from "./layout"
 import media from 'src/styles/mediaqueries'
 
-export default function Header() {
-  const drawerContext = React.useContext(DrawerContext)
+const Header = () => {
+  const drawerContext = React.useContext(DrawerContext);
 
   return (
     <>
@@ -25,7 +25,7 @@ export default function Header() {
         </Link>
       </Heading>
     </>
-  )
+  );
 }
 
 const Heading = styled.div`
@@ -58,3 +58,5 @@ const _A = styled.a`
   transform: translateX(-20px);
   color: #000;
 `
+
+export default Header;
