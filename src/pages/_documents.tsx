@@ -7,6 +7,7 @@ import NextDocument, {
   DocumentContext,
   DocumentInitialProps
 } from 'next/document'
+import { existsGaId, GA_TRACKING_ID } from 'src/lib/gtag'
 import { RenderPageResult } from 'next/dist/next-server/lib/utils'
 import { ServerStyleSheet } from 'styled-components'
 import { ServerStyleSheets as MaterialServerStyleSheets } from '@material-ui/core'
@@ -53,6 +54,23 @@ export default class CustomDocument extends NextDocument {
       <Html lang="ja-JP">
         <Head>
           <link rel="icon" href="/favicon.ico" />
+          {/* Google Analytics */}
+          {existsGaId ? (
+            <>
+              <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`} />
+              <script
+                dangerouslySetInnerHTML={{
+                  __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${GA_TRACKING_ID}', {
+                    page_path: window.location.pathname,
+                  });`,
+                }}
+              />
+            </>
+          ) : null}
         </Head>
         <body>
           <Main />
