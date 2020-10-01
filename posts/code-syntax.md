@@ -72,8 +72,6 @@ yarn add highlight.js
 ```ts
 // pages/_app.tsx
 
-                        ・
-                        ・
 import 'highlight.js/styles/hybrid.css'
                         ・
                         ・
