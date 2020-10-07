@@ -30,6 +30,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   code {
+    font-size: 0.9rem;
+    line-height: 1.5;
     background-color: #eee;
     color: #333;
     padding: 0.1em 0.4em;
